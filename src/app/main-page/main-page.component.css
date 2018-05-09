@@ -1,0 +1,22 @@
+.form-group{
+    padding:50px;
+    align-items: center;
+    margin-top: 50px;
+}
+#main {
+    height:800px; 
+}
+table{
+    padding:50px;
+    margin-top:200px;
+    align-items: center;
+    width:1200px;
+}
+th{
+    font-size: 20px;
+    color: darkseagreen;
+}
+td{
+    font-size: 15px;
+    color: darkgray;
+}

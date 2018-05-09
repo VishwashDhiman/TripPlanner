@@ -1,0 +1,79 @@
+<div class="container-fluid" id="main" [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <div class="form-group">
+          <select class="form-control" [(ngModel)]="selectedField" (change)="showData()" name="select">
+            <option selected>----</option>
+            <option>Flights</option>
+            <option>Trains</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="train" class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <th>FROM</th>
+          <th>Train Name</th>
+          <th>Departure Time</th>
+          <th>Arrival Time</th>
+          <th>Duration</th>
+          <th>Train Number</th>
+        </thead>
+        <tr *ngFor="let data of data; let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+          <td>{{data.from}}</td>
+          <td>{{data.trainName}}</td>
+          <td>{{data.departureTime}}</td>
+          <td>{{data.arrivalTime}}</td>
+          <td>{{data.duration}}</td>
+          <td>{{data.number}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div *ngIf="flight" class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <th>AirLines</th>
+          <th>Flight</th>
+          <th>Fare</th>
+          <th>Departure Time</th>
+          <th>Duration</th>
+        </thead>
+        <tr *ngFor="let data of data">
+          <td>{{data.airline}}</td>
+          <td>{{data.flight}}</td>
+          <td>{{data.fare}}</td>
+          <td>{{data.departureTime}}</td>
+          <td>{{data.duration}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div *ngIf="bus" class="col-md-12">
+      <table class="table table-hover table-bordered table-striped">
+        <thead>
+          <th>FROM</th>
+          <th>Train Name</th>
+          <th>Departure Time</th>
+          <th>Arrival Time</th>
+          <th>Duration</th>
+          <th>Train Number</th>
+          <th>Select</th>
+        </thead>
+        <tr *ngFor="let data of arr; let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+          <td>{{data.from_station.name}}-{{data.to_station.name}}</td>
+          <td>{{data.name}}</td>
+          <td>{{data.src_departure_time}}</td>
+          <td>{{data.dest_arrival_time}}</td>
+          <td>{{data.travel_time}}</td>
+          <td>{{data.number}}</td>
+          <td>
+            <input type="checkbox" name="check" (change)="check(i)">
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

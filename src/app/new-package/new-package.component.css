@@ -1,0 +1,46 @@
+.glyphicon{
+    margin-top: 35px;
+    margin-left:15px;
+}
+#selection{
+    margin-left:200px;
+    border-radius:10px;
+    background-color:rgb(34, 66, 124);
+    color:rgb(109, 175, 201);
+}
+#round{
+    margin-left:20px;
+    border-radius:10px;
+    background-color:rgb(41, 64, 112);
+    color:rgb(109, 175, 201);
+}
+#date{
+    margin-top:100px;
+}
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+  
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+}
+#data{
+      margin-top:150px;
+}
+#flight{
+      margin-top:50px;
+}
+
+.table tr.active td {
+    background-color:#123456 !important;
+    color: white;
+}
+td{
+    font-size: 15px;
+      color: rgb(78, 26, 2);
+      
+}
+th{
+    font-size: 20px;
+    color: rgb(15, 1, 66);
+}
