@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" (click)="setSpace()" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink="home">CLearMyTrip</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li>
+          <a routerLink="newpackage">Flight</a>
+        </li>
+        <li>
+          <a routerLink="trains">Train</a>
+        </li>
+        <li class="notLog" *ngIf="!Loggin">
+          <a routerLink="signup">SignUp</a>
+        </li>
+        <li *ngIf="!Loggin">
+          <a routerLink="login">LogIn</a>
+        </li>
+        <li class="Log" *ngIf="Loggin"><a>Logged in as {{email}}</a></li>
+        <li *ngIf="Loggin"  (click) = 'logout()'><a>LogOut</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

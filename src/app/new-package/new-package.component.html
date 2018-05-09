@@ -1,0 +1,104 @@
+<div class="container-fluid" [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+  <div class="row">
+    <div class="col-md-12">
+      <form #bookingForm="ngForm">
+        <div class="form-group col-md-2">
+          <label for="source">From</label>
+          <select #selectOption1 (change)='getSourceValue(selectOption1.value)' [(ngModel)]="source" name="sour" class='form-control'
+            required>
+            <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-1">
+          <i class="glyphicon glyphicon-transfer"></i>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="dest">To</label>
+          <select #selectOption (change)='getDestValue(selectOption.value)' [(ngModel)]="destination" name="dest" class='form-control'
+            required>
+            <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label for="adults">Adults</label>
+          <select id="adultsSelect" class="form-control" [(ngModel)]="adults" name="adults" required>
+            <option>0</option>
+            <option selected>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="children">Children</label>
+          <select id="childSelect" class="form-control" [(ngModel)]="childrens" name="child" required>
+            <option selected>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+
+        </div>
+        <div class="col-md-3">
+          <label class="date">Depart on</label>
+          <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="Arrivaldate" required></my-date-picker>
+        </div>
+        <div class="col-md-6" *ngIf="dispReturn">
+          <label class="date">Return on</label>
+          <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="Departuredate" required></my-date-picker>
+        </div>
+        <div class="col-md-10"></div>
+        <div class="col-md-2" id="flight">
+
+          <button class="btn btn-primary" [disabled]="!bookingForm.form.valid" (click)="showflights()">Show Flights</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-12" id="div_img">
+      <ng4-loading-spinner></ng4-loading-spinner>
+    </div>
+    <div class="col-md-12" id="data">
+      <div class="col-md-12" *ngIf="!showData">
+        <h3>No Data Found</h3>
+      </div>
+      <div *ngIf="showData">
+        <table class="table table-bordered">
+          <thead>
+            <th>AirLines</th>
+            <th>Flight</th>
+            <th>Fare</th>
+            <th>Departure Time</th>
+            <th>Duration</th>
+            <th>Select</th>
+          </thead>
+          <tr *ngFor="let data of arr; let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+            <td>{{data.airline}}</td>
+            <td>{{source}}-{{destination}}</td>
+            <td>{{data.fare.totalfare}}</td>
+            <td>{{data.deptime}}</td>
+            <td>{{data.duration}}</td>
+            <td>
+              <input type="checkbox" name="name1" class="checkbox" (change)="check(i)" />&nbsp;</td>
+          </tr>
+        </table>
+        <br>
+        <button class="btn btn-primary" *ngIf="loggedIn && selected" (click)="bookFlight()">Book Flights</button>
+        <button class="btn btn-primary" *ngIf="notLogin && selected" (click)="bookFlight()">Book Flights</button>
+      </div>
+    </div>
+  </div>
+</div>
