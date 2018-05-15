@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//Craete ninja Schema & model
+//Craete Flight Schema & model
 
 const TourSchema = new Schema({
   id: {
@@ -22,12 +22,8 @@ const TourSchema = new Schema({
   duration: {
     type: String
   }
-  //Add geo Location
 });
 
 
 const Tour = mongoose.model('tour', TourSchema);
-// const Train = mongoose.model('train',TrainSchema);
-
 module.exports = Tour;
-// module.exports = Train;

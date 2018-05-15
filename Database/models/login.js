@@ -1,29 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//Craete Flight Schema & model
-
-const TourSchema = new Schema({
-  id: {
-    type: String
+//Creating Login Schema & model
+const LoginSchema = new Schema({
+  email: {
+    type: String,
+    required:[true]
   },
-  airline: {
-    type: String 
-  },
-  flight: {
-    type: String
-  },
-  fare: {
-    type: Number
-  },
-  departureTime: {
-    type: String
-  },
-  duration: {
-    type: String
+  password:{
+    type:String,
+    required:[true]
   }
-});
-
-
-const Tour = mongoose.model('tour', TourSchema);
-module.exports = Tour;
+}); 
+const Login = mongoose.model('login',LoginSchema);
+module.exports = Login;
