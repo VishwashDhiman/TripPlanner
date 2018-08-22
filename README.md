@@ -1,6 +1,8 @@
 # Trip
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli). This project is about to allow the user to search the flights and trains available online on that time. After that the user is able to store the flights in his db after creating his account on the site. 
+
+Here is the link for live streaming of the site:point_right: [Live link](https://fierce-tor-41431.herokuapp.com)
 
 ## Development server
 
